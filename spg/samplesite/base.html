@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>{{ title }}</title>
+    <link href="static/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="static/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
+    <link href="static/spg.less" rel="stylesheet/less" type="text/css">
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="span12 header">
+          {{ header }}
+        </div>
+      </div>
+      <div class="row middle">
+        <div class="span2 sidebar">
+          <ul>
+            {% for l in links %}
+            <li><a href="{{ l.link }}">{{ l.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="span8 content">
+          {{ content }}
+        </div>
+      </div>
+    </div>
+    <script src="static/less.js" type="text/javascript"></script>
+  </body>
+</html>

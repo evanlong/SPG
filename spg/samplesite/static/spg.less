@@ -1,0 +1,67 @@
+/*mixins*/
+.rounded-corners (@radius: 5px) {
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+.sans-font (@size: 12pt) {
+    font-family: Verdana,Sans,Arial;
+    font-size: @size;
+}
+/*real classes*/
+a {
+    color: rgb(0,144,255);
+}
+
+p {
+    .sans-font;
+}
+
+body {
+    .sans-font;
+}
+
+.header {
+    font-family: "Courier New",Courier,Mono;
+    font-size: 32pt;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    line-height: 100%;
+}
+
+.sidebar {
+    .sans-font(14pt);
+    padding-top: 20px;
+    ul {
+        list-style: none;
+        padding: 0px;
+        margin: 0px;
+    }
+    li {
+        margin-bottom: 20px;
+        line-height: 1.2;
+    }
+}
+
+.content {
+}
+
+@media (max-width: 767px) {
+    .sidebar {
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        li {
+            display: inline;
+            line-height: 1.5;
+            white-space: nowrap;
+            margin-right: 10px;
+        }
+    }
+    .header {
+        margin-bottom: 0px;
+    }
+}
+

@@ -1,0 +1,8 @@
+{
+    "header": "Simple Page Gen",
+    "links": [
+        {"title":"Home", "md":"index.markdown"},
+        {"title":"Docs", "md":"docs.markdown"},
+        {"title":"Github", "url":"https://github.com/evanlong/SPG"}
+    ]
+}

@@ -1,4 +1,0 @@
-SPG
-===
-
-Simple Page Generator
