@@ -1,5 +1,8 @@
-/*mixins*/
-/*real classes*/
+pre {
+    white-space: pre;
+    overflow: auto;
+    word-wrap: normal;
+}
 a {
   color: #0090ff;
 }
