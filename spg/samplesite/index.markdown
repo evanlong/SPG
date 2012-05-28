@@ -5,7 +5,7 @@ multipage website with a few markdown files.
 
 ### Install
 
-`pip intall spg`
+`pip install git+git://github.com/evanlong/SPG.git`
 
 SPG depends on the following Python packages all of which can be installed with
 pip:
@@ -13,7 +13,6 @@ pip:
     Jinja2
     Markdown
     Pygments
-
 
 ### Getting started
 

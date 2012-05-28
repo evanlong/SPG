@@ -95,7 +95,8 @@ def main():
             if os.path.exists(param):
                 showError("The directory %s already exists." % (param))
             else:
-                pass
+                samplesitePath = os.path.join(os.path.dirname(__file__), "samplesite")
+                shutil.copytree(samplesitePath, param)
     else:
         showHelp()
 
