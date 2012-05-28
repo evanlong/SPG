@@ -8,7 +8,7 @@ except ImportError:
 setup(name="spg",
       version="0.0.1",
       author="Evan Long",
-      autor_email="annglove@gmail.com",
+      author_email="annglove@gmail.com",
       description="SPG is a simple page generator. Given a set of markdown "\
           "files a website will be generated.",
       license="MIT License",
