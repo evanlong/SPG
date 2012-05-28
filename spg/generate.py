@@ -45,7 +45,6 @@ def buildSite(path, manifestPath, templatePath):
     transformedLinks = []
     markdownFiles = []
     for l in links:
-        "{title, md/url}"
         title = l.get("title", "unknown title")
         o = {"title": title}
         if l.has_key("url"):
