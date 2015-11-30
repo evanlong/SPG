@@ -6,7 +6,7 @@ except ImportError:
     from setuptools import setup, find_packages
 
 setup(name="spg",
-      version="0.0.1",
+      version="0.0.2",
       author="Evan Long",
       author_email="annglove@gmail.com",
       description="SPG is a simple page generator. Given a set of markdown "\
