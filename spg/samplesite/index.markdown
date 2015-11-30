@@ -1,9 +1,9 @@
-### Welcome
+## Welcome
 
 The purpose of Simple Page Gen (SPG) is to make it easy to build a simple
 multipage website with a few markdown files.
 
-### Install
+## Install
 
 `pip install git+git://github.com/evanlong/SPG.git`
 
@@ -14,7 +14,7 @@ pip:
     Markdown
     Pygments
 
-### Getting started
+## Getting started
 
 Once SPG is installed create a site, build it and view it. This can be done
 with the following commands:
@@ -26,7 +26,7 @@ with the following commands:
 The template site is the documentation for SPG. The next steps are writing
 markdown files and updating the `manifest.json` in order to render those files.
 
-### Details after getting started
+## Details after getting started
 
 The template site and all SPG sites have the following structure:
 
@@ -63,7 +63,7 @@ In order to add a another page create a markdown file. Create some content and
 add it to the links list. Running `spg make site_name` again will regenerate
 the site.
 
-### License
+## License
 
 SPG is licensed under the terms of the MIT License which can be found here:
 <https://github.com/evanlong/SPG/blob/master/LICENSE.txt>.

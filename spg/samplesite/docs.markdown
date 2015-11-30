@@ -1,4 +1,4 @@
-### Command Line Interface
+## Command Line Interface
 
 SPG provides the following command line interface:
 
@@ -7,7 +7,7 @@ SPG provides the following command line interface:
     create dir_name - creates a new site in `dir_name` using the spg template
     help - displays this message
 
-### manifset.json
+## manifset.json
 
     {
         "header": "String for header variable in the template",
@@ -24,7 +24,7 @@ the `url` and the link will be external.
 
 In order for a markdown file to be rendered it must appear in the `links` array.
 
-### Creating a template
+## Creating a template
 
 SPG uses [Jinja2](http://jinja.pocoo.org/docs/) for templating.
 
