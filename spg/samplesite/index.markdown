@@ -5,7 +5,7 @@ multipage website with a few markdown files.
 
 ## Install
 
-`pip install git+git://github.com/evanlong/SPG.git`
+    pip install git+git://github.com/evanlong/SPG.git
 
 SPG depends on the following Python packages all of which can be installed with
 pip:
@@ -66,5 +66,5 @@ the site.
 ## License
 
 SPG is licensed under the terms of the MIT License which can be found here:
-<https://github.com/evanlong/SPG/blob/master/LICENSE.txt>.
+[LICENSE.txt](https://github.com/evanlong/SPG/blob/master/LICENSE.txt).
 
