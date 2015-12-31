@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Home</title>
+    <link href="static/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="static/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
+    <link href="static/tango.css" rel="stylesheet" type="text/css">
+    <link href="static/spg.css" rel="stylesheet" type="text/css">
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="span12 header">
+          Simple Page Gen
+        </div>
+      </div>
+      <div class="row middle">
+        <div class="span2 sidebar">
+          <ul>
+            
+            <li><a href="index.html">Home</a></li>
+            
+            <li><a href="docs.html">Docs</a></li>
+            
+            <li><a href="https://github.com/evanlong/SPG">Github</a></li>
+            
+          </ul>
+        </div>
+        <div class="span8 content">
+          <h2>Welcome</h2>
+<p>The purpose of Simple Page Gen (SPG) is to make it easy to build a simple
+multipage website with a few markdown files.</p>
+<h2>Install</h2>
+<div class="codehilite"><pre>pip install git+git://github.com/evanlong/SPG.git
+</pre></div>
+
+
+<p>SPG depends on the following Python packages all of which can be installed with
+pip:</p>
+<div class="codehilite"><pre>Jinja2
+Markdown
+Pygments
+</pre></div>
+
+
+<h2>Getting started</h2>
+<p>Once SPG is installed create a site, build it and view it. This can be done
+with the following commands:</p>
+<div class="codehilite"><pre>spg create site_name
+spg make site_name
+open site_name_out/index.html
+</pre></div>
+
+
+<p>The template site is the documentation for SPG. The next steps are writing
+markdown files and updating the <code>manifest.json</code> in order to render those files.</p>
+<h2>Details after getting started</h2>
+<p>The template site and all SPG sites have the following structure:</p>
+<div class="codehilite"><pre>site_name/
+    static/ - folder containing the static resources for the site
+    manifest.json - metadata describing the site and and pages (this is a
+    required file)
+    base.html - a jinja2 template (this is a required file)
+    index.markdown - this file
+    docs.markdown - documentation of commands spg accepts
+</pre></div>
+
+
+<p>The <code>manifest.json</code> and the markdown files are the only files that require
+editing. The manifest contains a JSON dictionary with two keys: <code>header</code> and
+<code>links</code>. The <code>header</code> represents the text that will be passed to the templates
+<code>header</code> variable.</p>
+<p>The <code>links</code> key provides an array of key/value pairs. The order of the array
+specifies the order in which the links should be rendered on the page. The
+key/value pairs in the array specify the title and a URL or a markdown file
+that they link to.</p>
+<p>The manifest for the SPG documentation site has the following structure:</p>
+<div class="codehilite"><pre>&quot;links&quot;: [
+    {&quot;title&quot;:&quot;Home&quot;, &quot;md&quot;:&quot;index.markdown&quot;},
+    {&quot;title&quot;:&quot;Docs&quot;, &quot;md&quot;:&quot;docs.markdown&quot;},
+    {&quot;title&quot;:&quot;Github&quot;, &quot;url&quot;:&quot;https://github.com/evanlong/SPG&quot;}
+]
+</pre></div>
+
+
+<p>The first two links will be to pages rendered by the <code>index.markdown</code> and
+<code>docs.markdown</code> files. The last link will be a link to an external site.</p>
+<p>In order to add a another page create a markdown file. Create some content and
+add it to the links list. Running <code>spg make site_name</code> again will regenerate
+the site.</p>
+<h2>License</h2>
+<p>SPG is licensed under the terms of the MIT License which can be found here:
+<a href="https://github.com/evanlong/SPG/blob/master/LICENSE.txt">LICENSE.txt</a>.</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Docs</title>
+    <link href="static/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="static/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
+    <link href="static/tango.css" rel="stylesheet" type="text/css">
+    <link href="static/spg.css" rel="stylesheet" type="text/css">
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="span12 header">
+          Simple Page Gen
+        </div>
+      </div>
+      <div class="row middle">
+        <div class="span2 sidebar">
+          <ul>
+            
+            <li><a href="index.html">Home</a></li>
+            
+            <li><a href="docs.html">Docs</a></li>
+            
+            <li><a href="https://github.com/evanlong/SPG">Github</a></li>
+            
+          </ul>
+        </div>
+        <div class="span8 content">
+          <h2>Command Line Interface</h2>
+<p>SPG provides the following command line interface:</p>
+<div class="codehilite"><pre>make dir_name - takes the specified directory and generates the website. The
+    output is placed in a directory with `dir_name` suffixed with &quot;_out&quot;
+create dir_name - creates a new site in `dir_name` using the spg template
+help - displays this message
+</pre></div>
+
+
+<h2>manifset.json</h2>
+<div class="codehilite"><pre>{
+    &quot;header&quot;: &quot;String for header variable in the template&quot;,
+    &quot;links&quot;: [
+        {&quot;title&quot;:&quot;Title used for page and link&quot;, &quot;md&quot;:&quot;md file to render&quot;},
+        {&quot;title&quot;:&quot;External Page&quot;, &quot;url&quot;:&quot;&quot;},
+        {&quot;title&quot;:&quot;Error no md or url key&quot;}
+    ]
+}
+</pre></div>
+
+
+<p>If a link entry has neither a <code>url</code> or a <code>md</code> key that is considered an
+error. If it contains both a <code>url</code> and a <code>md</code> key then preference is given to
+the <code>url</code> and the link will be external.</p>
+<p>In order for a markdown file to be rendered it must appear in the <code>links</code> array.</p>
+<h2>Creating a template</h2>
+<p>SPG uses <a href="http://jinja.pocoo.org/docs/">Jinja2</a> for templating.</p>
+<p>SPG has exactly one template: <code>base.html</code>. It exists in the site's root
+directory and is used for each rendered page.</p>
+<p>A custom template must account for the following variables: <code>title</code>, <code>header</code>,
+<code>links</code>, and <code>content</code>. Each variable is described below:</p>
+<div class="codehilite"><pre>header - Text used on the top of each page.
+title - The title of the page when active. Derived from the link name.
+links - Array of key/value pairs with for each page. The keys are title and
+link.
+content - Result of rendering markdown to HTML.
+</pre></div>
+
+
+<p>That is it. Just four variables. Render them as desired.</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
