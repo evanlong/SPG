@@ -43,8 +43,7 @@ editing. The manifest contains a JSON dictionary with two keys: `header` and
 `links`. The `header` represents the text that will be passed to the templates
 `header` variable.
 
-The `links` key provides an array of key/value pairs. The order of the array
-specifies the order in which the links should be rendered on the page. The
+The `links` key provides an array of key/value pairs. The order of the array specifies the order in which the links should be rendered on the page. The
 key/value pairs in the array specify the title and a URL or a markdown file
 that they link to.
 
@@ -56,8 +55,7 @@ The manifest for the SPG documentation site has the following structure:
         {"title":"Github", "url":"https://github.com/evanlong/SPG"}
     ]
 
-The first two links will be to pages rendered by the `index.markdown` and
-`docs.markdown` files. The last link will be a link to an external site.
+The first two links will be to pages rendered by the `index.markdown` and `docs.markdown` files. The last link will be a link to an external site.
 
 In order to add a another page create a markdown file. Create some content and
 add it to the links list. Running `spg make site_name` again will regenerate

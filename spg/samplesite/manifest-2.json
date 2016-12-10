@@ -1,0 +1,24 @@
+{
+    "header":"Simple Page Gen (New Gen)",
+    "template":"base.html",
+    "links": [
+        {"title":"About", "md":"index.markdown"},
+        {"title":"Tips", "md":"docs.markdown", "template":"OtherBase.html"},
+        {"title":"Checklists", "url":"https://github.com/evanlong/SPG"},
+        {"title":"Places I've Been", "section":"travel", "template":"PlacesIveBeen.template.html"}
+    ],
+    "sections": [
+        {
+            "name":"travel",
+            "header":"Travel Pages",
+            "template":"travelTemplate.html",
+            // "useParentLinks":true, // should the template take care of this or we add useParentLinks to make it a little easier?
+            "links": [
+                {"title":"Europe 2016", "md":"europe2016.markdown"},
+                {"title":"Japan", "md":"japan.markdown", "template":"JapanBase.html"},
+                {"title":"Australia", "md":"australia2013.markdown"},
+                {"title":"Italy", "md":"italy2014.markdown"}
+            ]
+        }
+    ]
+}

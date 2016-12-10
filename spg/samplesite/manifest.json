@@ -1,8 +1,115 @@
 {
-    "header": "Simple Page Gen",
-    "links": [
+    "defaultTemplate": "base.html", // Perhaps define a baseTemplate.html to provide a name other than base.html
+    "header": "Simple Page Gen", // could double as the name this is referred to by other sites? No, other sites should rely on the subsite.name
+    "links": [ // Ability to treat single link as a special single page
         {"title":"Home", "md":"index.markdown"},
-        {"title":"Docs", "md":"docs.markdown"},
-        {"title":"Github", "url":"https://github.com/evanlong/SPG"}
-    ]
+        {"title":"Docs", "md":"docs.markdown", "template":"OtherBase.html"}, // specify a custom template besides base.html
+        {"title":"Github", "url":"https://github.com/evanlong/SPG"},
+        {"title":"AnotherPage", "md":"hello.markdown", "hidden":true}, // defaults to hidden:false, able to refer to site by title in code, or do we provide an name key?
+        {"title":"Places I've Been", "linkGroup:":"PlacesSection"},
+    ],
+    /*
+    Refer to subsites data as:
+        get a single subsite with:
+            subsite = subsites[name]
+
+        Individual properties
+            subsite.name # our defined name for the subsite
+            subsite.header # header/title defined in the subsites manifest
+            subsite.slug # slug which doubles as relative path to the root of the subsite
+            subsite.allLinks # everything in links
+            subsite.localLinks # all generated "md" links
+            subsite.remoteLinks # all
+
+        The subsite's links are "title" and "url" pairs
+
+
+    Best way to organize groups of pages: subsites OR as internal page group?
+        - should page_groups render into a folder
+        - key -> [links], PlacesIveBeen.template can render this group of links
+            - the links rendered there, go into the root level so need to make sure markdown files don't collide
+            - It's only a way to logically group items
+            - How to indicate "active" section have that carry through to section root 
+
+    What we pass in today:
+        - link (isActive, External, title, url)
+        - content
+        - Header/Title
+
+    What we pass in with addition of "sections":
+        - Link (isActive, External, title, url)
+        - Content
+        - Header/Title
+        - links to each section
+        What gets passed into the pages referenced by the sections? Link that pointed to them at the top level?
+            - same stuff, but also the "currentPageSection" if we did this how would be have a deeper hiearchy?
+
+    Need a way to just render single pages? That aren't links?
+
+    Rename: links -> pages?
+
+    New Model?
+    Deeper Hierarchy?
+        - Given the above and below models, it would be possible for "section" to have multiple parents but
+          could be avoided by moving "rootSection" to the top level in the site. Sections could be recursive
+          at some point where it is needed. And perhaps, if we specify a "slug" in the section, those pages
+          get shoved into their own folder
+    */
+
+
+    "newSiteModel2": {
+        "header":"Simple Page Gen (New Gen)",
+        "template":"base.html",
+        "links": [ // Ability to treat single link as a special single page
+            {"title":"About", "md":"index.markdown"},
+            {"title":"Tips", "md":"docs.markdown", "template":"OtherBase.html"}, // specify a custom template besides base.html
+            {"title":"Checklists", "url":"https://github.com/evanlong/SPG"},
+            {"title":"Places I've Been", "section":"travel", "template":"PlacesIveBeen.template.html"},
+                // We could have active sections AND active links
+                // Here our currentSection = rootSection
+                // currentLink = "Places I've Been", active, content isa section?
+                    // Links could be: Content(HTML), Content(Section), Content(RawURL)
+                // rootSection would be active. And the "places i've been" section would be active
+        ],
+        "sections": [
+            {
+                "name":"travel",
+                "header":"Travel Pages",
+                "template":"travelTemplate.html",
+                "useParentLinks":true, // "links" variable passed to template is from the parent section Defaults to false
+                "links": [
+                    {"title":"Europe 2016", "md":"europe2016.markdown"},
+                        // root section active
+                        // travel section active
+                        // europe 2016 link active
+                        // Render contents of "Europe 2016", but using the parent section of links for the sidebar
+
+                        // currentSection = travel (always parent of the currentLink so currentLink.section)
+                        // currentLink = "Europe 2016" with Content(HTML)
+                        // How would our sidebar render currentLink.section.links? Also reuse code/template from the base template
+                            /*
+                            for l in currentLinks.section.links:
+                                pass
+                             */
+
+                    {"title":"Japan", "md":"japan.markdown", "template":"JapanBase.html"}, // specify a custom template besides base.html
+                    {"title":"Australia", "md":"australia2013.markdown"},
+                    {"title":"Italy", "md":"italy2014.markdown"},
+                ],
+            },
+        ],
+
+        /*
+        Describes: site, section, page
+        What is passed in when we render a single page?
+            - rootSection
+                - header
+                - links
+                - sections
+            - currentLink
+                - content - Content(HTML), Content(Section), Content(RawURL)
+                - header
+                - section (the section this page is in)
+         */
+    }
 }
